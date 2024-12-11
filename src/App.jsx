@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import "./App.css";
 import FriendsList from "./Components/FriendsList";
+import SplitBillForm from "./Components/SplitBillForm";
 
 const initialFriends = [
   {
@@ -25,8 +26,9 @@ const initialFriends = [
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <FriendsList friends={initialFriends}/>
+      <SplitBillForm />
     </div>
   );
 }

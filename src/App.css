@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -41,6 +44,11 @@
   color: #888;
 }
 
+.app {
+  display: flex;
+  gap: 30px;
+}
+
 .status {
   font-size: 14px;
 }
@@ -49,7 +57,7 @@
   color: red;
 }
 
-.green{
+.green {
   color: greenyellow;
 }
 
@@ -63,15 +71,54 @@
   margin-bottom: 10px;
 }
 
+.header {
+  text-transform: uppercase;
+  margin: 0;
+  text-align: left;
+}
 
-label{
+label {
   font-size: 15px;
 }
 
-.btn{
+.btn {
   text-align: right;
 }
 
-.btn.add{
+.btn.add {
   margin-top: 20px;
+}
+
+.form-split-bill {
+  background-color: rgba(255, 213, 128, 0.3);
+  padding: 1rem 1.5rem;
+  width: 350px;
+  border-radius: 8px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.input-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-section input,
+select {
+  width: 100px;
+  border: none;
+}
+
+select {
+  text-align: center;
+}
+
+.split-btn{
+  text-align: right;
+  margin-top: 1rem;
 }
