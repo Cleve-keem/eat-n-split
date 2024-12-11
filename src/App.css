@@ -40,3 +40,38 @@
 .read-the-docs {
   color: #888;
 }
+
+.status {
+  font-size: 14px;
+}
+
+.red {
+  color: red;
+}
+
+.green{
+  color: greenyellow;
+}
+
+.friendName {
+  font-weight: 500;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+
+label{
+  font-size: 15px;
+}
+
+.btn{
+  text-align: right;
+}
+
+.btn.add{
+  margin-top: 20px;
+}
