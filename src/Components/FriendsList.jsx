@@ -1,6 +1,6 @@
 import Friend from "./Friend";
 
-export default function FriendsList({ friends, onSelection }) {
+export default function FriendsList({ friends, onSelection, selectedFriend }) {
   return (
     <div>
       <div
@@ -16,10 +16,9 @@ export default function FriendsList({ friends, onSelection }) {
           <Friend
             num={index}
             key={friend.id}
-            name={friend.name}
-            imageUrl={friend.imageUrl}
-            balance={friend.balance}
+            friend={friend}
             onSelection={onSelection}
+            selectedFriend={selectedFriend}
           />
         ))}
       </div>

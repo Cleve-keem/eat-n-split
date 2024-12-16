@@ -1,6 +1,9 @@
 import Button from "./Button";
 
-export default function Friend({ name, imageUrl, balance, onSelection }) {
+export default function Friend({ friend, onSelection, selectedFriend }) {
+  
+  const isSelected = selectedFriend?.id === friend.id;
+    
   return (
     <div
       className="wrapper"
@@ -15,25 +18,25 @@ export default function Friend({ name, imageUrl, balance, onSelection }) {
         className="container"
         style={{ display: "flex", alignItems: "center", gap: 10 }}
       >
-        <img src={imageUrl} alt="avatar" />
+        <img src={friend.imageUrl} alt="avatar" />
         <div className="userInfo" style={{ textAlign: "left" }}>
-          <div className="friendName">{name}</div>
-          {balance < 0 && (
+          <div className="friendName">{friend.name}</div>
+          {friend.balance < 0 && (
             <span className="red status">
-              You owe {name} {Math.abs(balance)}&euro;
+              You owe {friend.name} {Math.abs(friend.balance)}&euro;
             </span>
           )}
-          {balance > 0 && (
+          {friend.balance > 0 && (
             <span className="green status">
-              {name} owes you {balance}&euro;
+              {friend.name} owes you {friend.balance}&euro;
             </span>
           )}
-          {balance === 0 && (
-            <span className="status">You and {name} are even</span>
+          {friend.balance === 0 && (
+            <span className="status">You and {friend.name} are even</span>
           )}
         </div>
       </div>
-      <Button onClick={}>Select</Button>
+      <Button onClick={() => onSelection(friend)}>{isSelected ? "Close" : "Select"}</Button>
     </div>
   );
 }

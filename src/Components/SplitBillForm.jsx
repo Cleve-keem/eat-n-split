@@ -1,9 +1,10 @@
 import Button from "./Button";
 
-export default function SplitBillForm({ name }) {
+export default function SplitBillForm({ selectedFriend }) {
+  console.log(selectedFriend)
   return (
     <form className="form-split-bill">
-      <h3 className="header">slip a bill with name</h3>
+      <h3 className="header">slip a bill with {selectedFriend.name}</h3>
       <div className="input-wrapper">
         <div className="input-section">
           <label>💰 Bill value</label>
@@ -14,14 +15,14 @@ export default function SplitBillForm({ name }) {
           <input type="number" />
         </div>
         <div className="input-section">
-          <label>🤼 {name}'s expense</label>
+          <label>🤼 {selectedFriend.name}'s expense</label>
           <input className="review" type="text" disabled/>
         </div>
         <div className="input-section">
           <label>🤮 Who is paying the bill?</label>
           <select name="bill">
-            <option value="me">You</option>
-            <option value={name}>{name}</option>
+            <option value="user">You</option>
+            <option value={selectedFriend.name}>{selectedFriend.name}</option>
           </select>
         </div>
       </div>
