@@ -1,15 +1,6 @@
-import { useState } from "react";
-import Button from "./Button";
 import Friend from "./Friend";
-import AddFriendForm from "./AddFriendForm";
 
-export default function FriendsList({ friends }) {
-  const [onAdd, setOnAdd] = useState(false);
-
-  function handleAdd() {
-    setOnAdd((prev) => !prev);
-  }
-
+export default function FriendsList({ friends, onSelection }) {
   return (
     <div>
       <div
@@ -21,22 +12,16 @@ export default function FriendsList({ friends }) {
           marginBottom: 20,
         }}
       >
-        {friends.map((friend) => (
+        {friends.map((friend, index) => (
           <Friend
+            num={index}
             key={friend.id}
             name={friend.name}
-            image={friend.image}
+            imageUrl={friend.imageUrl}
             balance={friend.balance}
+            onSelection={onSelection}
           />
         ))}
-      </div>
-      {onAdd && (
-        <AddFriendForm />
-      )}
-      <div className="btn add">
-        <Button onClick={handleAdd}>
-            {onAdd ? "Close" : "Add Friend"}
-        </Button>
       </div>
     </div>
   );

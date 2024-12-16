@@ -1,34 +1,63 @@
-// import { useState } from "react";
-import "./App.css";
+import { useState } from "react";
+import AddFriendForm from "./Components/AddFriendForm";
 import FriendsList from "./Components/FriendsList";
 import SplitBillForm from "./Components/SplitBillForm";
+import "./App.css";
+import Button from "./Components/Button";
 
 const initialFriends = [
   {
     id: 118836,
     name: "Clark",
-    image: "https://i.pravatar.cc/48?u=118836",
+    imageUrl: "https://i.pravatar.cc/48?u=118836",
     balance: -7,
   },
   {
     id: 933372,
     name: "Sarah",
-    image: "https://i.pravatar.cc/48?u=933372",
+    imageUrl: "https://i.pravatar.cc/48?u=933372",
     balance: 20,
   },
   {
     id: 499476,
     name: "Anthony",
-    image: "https://i.pravatar.cc/48?u=499476",
+    imageUrl: "https://i.pravatar.cc/48?u=499476",
     balance: 0,
   },
 ];
 
 function App() {
+  const [friends, setFriends] = useState(initialFriends);
+  const [showAddFriend, setShowAddFriend] = useState(false);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+
+  // console.log(friends);
+
+  function handleShowAddFriend() {
+    setShowAddFriend((show) => !show);
+  }
+
+  function handleAddFriend(friend){
+    setFriends((friends)=> [...friends, friend])
+    setShowAddFriend(false);
+  }
+
+  function handleSelection(friend){
+    setSelectedFriend(friend)
+  }
+
   return (
     <div className="app">
-      <FriendsList friends={initialFriends}/>
-      <SplitBillForm />
+      <div className="left">
+        <FriendsList friends={friends} onSelection={handleSelection}/>
+        {showAddFriend && <AddFriendForm onAddFriend={handleAddFriend} />}
+        <div className="btn add-">
+          <Button onClick={handleShowAddFriend}>
+            {showAddFriend ? "Close" : "Add Friend"}
+          </Button>
+        </div>
+      </div>
+      {showSpiltBill && <SplitBillForm />}
     </div>
   );
 }

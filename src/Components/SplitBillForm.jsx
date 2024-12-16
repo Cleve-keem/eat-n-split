@@ -7,15 +7,15 @@ export default function SplitBillForm({ name }) {
       <div className="input-wrapper">
         <div className="input-section">
           <label>💰 Bill value</label>
-          <input type="text" />
+          <input type="number" />
         </div>
         <div className="input-section">
           <label>🧑 Your expense</label>
-          <input type="text" />
+          <input type="number" />
         </div>
         <div className="input-section">
           <label>🤼 {name}'s expense</label>
-          <input type="text" />
+          <input className="review" type="text" disabled/>
         </div>
         <div className="input-section">
           <label>🤮 Who is paying the bill?</label>

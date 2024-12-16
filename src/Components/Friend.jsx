@@ -1,8 +1,6 @@
 import Button from "./Button";
 
-export default function Friend({ name, image, balance }) {
-  // const bal = Math.abs(balance)
-  // console.log(name)
+export default function Friend({ name, imageUrl, balance, onSelection }) {
   return (
     <div
       className="wrapper"
@@ -17,7 +15,7 @@ export default function Friend({ name, image, balance }) {
         className="container"
         style={{ display: "flex", alignItems: "center", gap: 10 }}
       >
-        <img src={image} alt="avatar" />
+        <img src={imageUrl} alt="avatar" />
         <div className="userInfo" style={{ textAlign: "left" }}>
           <div className="friendName">{name}</div>
           {balance < 0 && (
@@ -31,13 +29,11 @@ export default function Friend({ name, image, balance }) {
             </span>
           )}
           {balance === 0 && (
-            <span className="status">
-              You and {name} are even
-            </span>
+            <span className="status">You and {name} are even</span>
           )}
         </div>
       </div>
-      <Button>Select</Button>
+      <Button onClick={}>Select</Button>
     </div>
   );
 }
