@@ -1,17 +1,17 @@
 import Button from "./Button";
 
 export default function Friend({ friend, onSelection, selectedFriend }) {
-  
   const isSelected = selectedFriend?.id === friend.id;
     
   return (
-    <div
-      className="wrapper"
+    <li
+      className={`friend ${isSelected ? "selected" : ""}`}
       style={{
-        width: 300,
+        width: 330,
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        lineHeight: 1.2
       }}
     >
       <div
@@ -37,6 +37,6 @@ export default function Friend({ friend, onSelection, selectedFriend }) {
         </div>
       </div>
       <Button onClick={() => onSelection(friend)}>{isSelected ? "Close" : "Select"}</Button>
-    </div>
+    </li>
   );
 }

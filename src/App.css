@@ -88,7 +88,7 @@ label {
 
 
 .form-split-bill {
-  background-color: rgba(255, 213, 128, 0.3);
+  background-color: #ffd5804d;
   padding: 1rem 1.5rem;
   width: 350px;
   height: fit-content;
@@ -124,4 +124,13 @@ select {
 .split-btn{
   text-align: right;
   margin-top: 1rem;
+}
+
+.selected{
+  background-color: #ffd5804d;
+  border-radius: 10px;
+}
+
+.friend{
+  padding: 5px 10px;
 }
